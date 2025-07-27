@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Album Ảnh Tự Động</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <h1>Album Ảnh Câu Chuyện (Auto)</h1>
+    <p>Bạn chỉ cần thêm ảnh vào thư mục <code>images/</code>, web sẽ tự nhận!</p>
+    <div id="slideshow"></div>
+
+    <script>
+        // Tải danh sách ảnh từ thư mục images/
+        fetch('images_list.json')
+            .then(response => response.json())
+            .then(images => {
+                const container = document.getElementById("slideshow");
+                images.forEach((img, i) => {
+                    const el = document.createElement("img");
+                    el.src = "images/" + img;
+                    el.style.display = i === 0 ? "block" : "none";
+                    container.appendChild(el);
+                });
+
+                const slides = container.querySelectorAll("img");
+                let index = 0;
+                const totalDurationMs = 60 * 1000; // 1 phút
+                const perSlide = totalDurationMs / slides.length;
+                setInterval(() => {
+                    slides[index].style.display = "none";
+                    index = (index + 1) % slides.length;
+                    slides[index].style.display = "block";
+                }, perSlide);
+            });
+    </script>
+</body>
+</html>

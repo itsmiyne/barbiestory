@@ -1,0 +1,38 @@
+body {
+    background-color: #ffe6f0;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    color: #d63384;
+    margin: 0;
+    padding: 0 0 40px 0;
+}
+h1 {
+    margin: 20px 0 10px 0;
+    font-size: 2em;
+    color: #d63384;
+}
+#slideshow {
+    position: relative;
+    margin: 20px auto;
+    width: 90%;
+    max-width: 900px;
+}
+#slideshow img {
+    width: 100%;
+    border: 5px solid #ffb6c1;
+    border-radius: 15px;
+    display: none;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+#slideshow img.active {
+    display: block;
+}
+.hint {
+    font-size: 0.9em;
+    color: #c2185b;
+}
+code {
+    background: #ffd9e6;
+    padding: 2px 4px;
+    border-radius: 4px;
+}
